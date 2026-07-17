@@ -15,4 +15,3 @@ Exécution depuis la racine :
 
 ./bin/cmpuf ../BENCHMARK/calgaryhospital15 e 4 0.00 5 40 30000 parameters/param hospital
 
-Apprentissage des branches git
