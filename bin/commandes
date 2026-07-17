@@ -1,0 +1,1000 @@
+ 1032  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1033  make -f ../Makefile cmpuf_hospitals 
+ 1034  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1035  make -f ../Makefile cmpuf_hospitals 
+ 1036  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1037  make -f ../Makefile cmpuf_hospitals 
+ 1038  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1039  make -f ../Makefile cmpuf_hospitals 
+ 1040  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1041  make -f ../Makefile cmpuf_hospitals 
+ 1042  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1043  make -f ../Makefile cmpuf_hospitals 
+ 1044  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1045  make -f ../Makefile cmpuf_hospitals 
+ 1046  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1047  make -f ../Makefile cmpuf_hospitals 
+ 1048  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1049  make -f ../Makefile cmpuf_hospitals 
+ 1050  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1051  make -f ../Makefile cmpuf_hospitals 
+ 1052  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1053  make -f ../Makefile cmpuf_hospitals 
+ 1054  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.01
+ 1055  gedit ../cpp/cmpuf_hospitals.cpp  &
+ 1056  ren
+ 1057  rn
+ 1058  ls
+ 1059  cd ..
+ 1060  ls
+ 1061  cd ../
+ 1062  ls
+ 1063  cd ..
+ 1064  cd static_pic/
+ 1065  mv V10-1/ V10-1-OLD/
+ 1066  cp -r /home/gueyes/RECHERCHE/CMPUF/CODES/SOURCES/V10-1/ .
+ 1067  cd V10-1
+ 1068  ls
+ 1069  cd bin/
+ 1070  ls
+ 1071  cd ../cpp/cmpuf_hospitals.cpp &
+ 1072  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1073  make -f ../Makefile cmpuf_hospitals 
+ 1074  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00
+ 1075  make -f ../Makefile cmpuf_hospitals 
+ 1076  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00
+ 1077  make -f ../Makefile cmpuf_hospitals 
+ 1078  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00
+ 1079  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 100
+ 1080  make -f ../Makefile cmpuf_hospitals 
+ 1081  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 100
+ 1082  make -f ../Makefile cmpuf_hospitals 
+ 1083  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 100 100
+ 1084  make -f ../Makefile cmpuf_hospitals 
+ 1085  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 246 60
+ 1086  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1087  make -f ../Makefile cmpuf_hospitals 
+ 1088  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1089  make -f ../Makefile cmpuf_hospitals 
+ 1090  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1091  make -f ../Makefile cmpuf_hospitals 
+ 1092  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1093  make -f ../Makefile cmpuf_hospitals 
+ 1094  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1095  make -f ../Makefile cmpuf_hospitals 
+ 1096  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1097  make -f ../Makefile cmpuf_hospitals 
+ 1098  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1099  make -f ../Makefile cmpuf_hospitals 
+ 1100  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1101  make -f ../Makefile cmpuf_hospitals 
+ 1102  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1103  make -f ../Makefile cmpuf_hospitals 
+ 1104  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1105  make -f ../Makefile cmpuf_hospitals 
+ 1106  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1107  make -f ../Makefile cmpuf_hospitals 
+ 1108  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1109  make -f ../Makefile cmpuf_hospitals 
+ 1110  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1111  make -f ../Makefile cmpuf_hospitals 
+ 1112  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1113  make -f ../Makefile cmpuf_hospitals 
+ 1114  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1115  make -f ../Makefile cmpuf_hospitals 
+ 1116  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1117  make -f ../Makefile cmpuf_hospitals 
+ 1118  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1119  make -f ../Makefile cmpuf_hospitals 
+ 1120  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1121  make -f ../Makefile cmpuf_hospitals 
+ 1122  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1123  make -f ../Makefile cmpuf_hospitals 
+ 1124  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1125  make -f ../Makefile cmpuf_hospitals 
+ 1126  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1127  make -f ../Makefile cmpuf_hospitals 
+ 1128  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1129  make -f ../Makefile cmpuf_hospitals 
+ 1130  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1131  make -f ../Makefile cmpuf_hospitals 
+ 1132  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1133  make -f ../Makefile cmpuf_hospitals 
+ 1134  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1135  make -f ../Makefile cmpuf_hospitals 
+ 1136  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1137  make -f ../Makefile cmpuf_hospitals 
+ 1138  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1139  make -f ../Makefile cmpuf_hospitals 
+ 1140  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1141  make -f ../Makefile cmpuf_hospitals 
+ 1142  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 h 4 0.00 246 60
+ 1143  history
+ 1144  cd /opt
+ 1145  mkdir gurobi
+ 1146  cp /home/gueyes/GUROBI/gurobi11.0.1_linux64.tar.gz ./
+ 1147  ls
+ 1148  mv gurobi11.0.1_linux64.tar.gz gurobi/
+ 1149  cd gurobi/
+ 1150  ls
+ 1151  gunzip gurobi11.0.1_linux64.tar.gz 
+ 1152  ls
+ 1153  tar -xvzf gurobi11.0.1_linux64.tar 
+ 1154  ls
+ 1155  tar -x gurobi11.0.1_linux64.tar 
+ 1156  tar -xvf gurobi11.0.1_linux64.tar 
+ 1157  ls
+ 1158  cd gurobi1101/
+ 1159  cd
+ 1160  cd /opt/ibm/
+ 1161  ls
+ 1162  cd ILOG/
+ 1163  ls
+ 1164  cd CPLEX_Studio201/
+ 1165  ls
+ 1166  cd cplex/examples/x86-64_linux/static_pic/
+ 1167  ls
+ 1168  cd V10-1
+ 1169  ls
+ 1170  cd bin/
+ 1171  ls
+ 1172  history
+ 1173  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1174  make -f ../Makefile cmpuf_hospitals 
+ 1175  gedit ../cpp/modele.cpp &
+ 1176  make -f ../Makefile cmpuf_hospitals 
+ 1177  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 246 20
+ 1178  make -f ../Makefile cmpuf_hospitals 
+ 1179  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 246 20
+ 1180  make -f ../Makefile cmpuf_hospitals 
+ 1181  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 246 20 1000
+ 1182  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 2000
+ 1183  make -f ../Makefile cmpuf_hospitals 
+ 1184  make -f ../Makefile cmpuf_hospitals 
+ 1185  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1186  make -f ../Makefile cmpuf_hospitals 
+ 1187  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1188  make -f ../Makefile cmpuf_hospitals 
+ 1189  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1190  make -f ../Makefile cmpuf_hospitals 
+ 1191  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1192  make -f ../Makefile cmpuf_hospitals 
+ 1193  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1194  top
+ 1195  kill -9 25492
+ 1196  python3.5 how_to_open_graphs.py
+ 1197  history
+ 1198  ls
+ 1199  cd 
+ 1200  cd /opt/ibm/ILOG/
+ 1201  ls
+ 1202  cd CPLEX_Studio201
+ 1203  ls
+ 1204  cd cplex/examples/x86-64_linux/static_pic/
+ 1205  ls
+ 1206  cp -r /home/gueyes/RECHERCHE/QUBO/LINEARISATION/DECOMPL_2024/ ./
+ 1207  ls
+ 1208  cd DECOMPL_2024/
+ 1209  ls
+ 1210  cd bin/
+ 1211  ls
+ 1212  gedit makecliquesarcs &
+ 1213  make -f makecliquesarcs cliquesarcs
+ 1214  gedit ../cpp/cliquesarcs.cpp &
+ 1215  gedit ../../V10-1/Makefile  &
+ 1216  make -f makecliquesarcs cliquesarcs
+ 1217  gedit ../h/cliquesarcs.h &
+ 1218  make -f makecliquesarcs cliquesarcs
+ 1219  gedit ../cpp/LinStand.cpp &
+ 1220  make -f makecliquesarcs cliquesarcs
+ 1221  gedit ../cpp/contraintes.cpp &
+ 1222  make -f makecliquesarcs cliquesarcs
+ 1223  ls
+ 1224  rm cliquesarcs.o 
+ 1225  make -f makecliquesarcs
+ 1226  make -f makecliquesarcs cliquesarcs
+ 1227  ls
+ 1228  cd ..
+ 1229  ls
+ 1230  cd ..
+ 1231  ls
+ 1232  cd DECOMPL_2024/
+ 1233  ls
+ 1234  mkdir data
+ 1235  ls
+ 1236  cd data
+ 1237  mkdir test
+ 1238  cd test
+ 1239  ls
+ 1240  cp -r /home/gueyes/RECHERCHE/QUBO/LINEARISATION/DECOMPL/BENCHMARK/test* .
+ 1241  ls
+ 1242  rm test~
+ 1243  rm testbillionet~
+ 1244  ls
+ 1245  more test
+ 1246  cd ..
+ 1247  ls
+ 1248  ls data/test/* fichiers_test
+ 1249  ls data/test/* > fichiers_test
+ 1250  more fichiers_test 
+ 1251  ls
+ 1252  rm fichiers_test 
+ 1253  cd bin/
+ 1254  ls
+ 1255  ls ../data/test/* > fichiers_test
+ 1256  more fichiers_test 
+ 1257  ls
+ 1258  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1259  gedit ../cpp/lecture.cpp &
+ 1260  make -f makecliquesarcs cliquesarcs
+ 1261  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1262  make -f makecliquesarcs cliquesarcs
+ 1263  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1264  ls
+ 1265  more linstand.lp 
+ 1266  make -f makecliquesarcs cliquesarcs
+ 1267  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1268  more linstand.lp 
+ 1269  make -f makecliquesarcs cliquesarcs
+ 1270  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1271  make -f makecliquesarcs cliquesarcs
+ 1272  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1273  make -f makecliquesarcs cliquesarcs
+ 1274  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1275  make -f makecliquesarcs cliquesarcs
+ 1276  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1277  make -f makecliquesarcs cliquesarcs
+ 1278  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1279  make -f makecliquesarcs cliquesarcs
+ 1280  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1281  make -f makecliquesarcs cliquesarcs
+ 1282  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1283  make -f makecliquesarcs cliquesarcs
+ 1284  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1285  make -f makecliquesarcs cliquesarcs
+ 1286  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1287  make -f makecliquesarcs cliquesarcs
+ 1288  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1289  make -f makecliquesarcs cliquesarcs
+ 1290  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1291  make -f makecliquesarcs cliquesarcs
+ 1292  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1293  make -f makecliquesarcs cliquesarcs
+ 1294  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1295  make -f makecliquesarcs cliquesarcs
+ 1296  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1297  make -f makecliquesarcs cliquesarcs
+ 1298  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1299  ls
+ 1300  cd ..
+ 1301  ls
+ 1302  cd bin
+ 1303  ls
+ 1304  find ../data/nb_nodes_8/ -name "*.gml" | grep weight > list_nb_nodes_8
+ 1305  more list_nb_nodes_8 
+ 1306  ls
+ 1307  history
+ 1308  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1309  ls
+ 1310  more resultats_fichiers_test 
+ 1311  gedit ../cpp/cliquesarcs.cpp &
+ 1312  history
+ 1313  make -f makecliquesarcs cliquesarcs 
+ 1314  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1315  make -f makecliquesarcs cliquesarcs 
+ 1316  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1317  make -f makecliquesarcs cliquesarcs 
+ 1318  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1319  make -f makecliquesarcs cliquesarcs 
+ 1320  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1321  make -f makecliquesarcs cliquesarcs 
+ 1322  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1323  make -f makecliquesarcs cliquesarcs 
+ 1324  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1325  make -f makecliquesarcs cliquesarcs 
+ 1326  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1327  make -f makecliquesarcs cliquesarcs 
+ 1328  ./cliquesarcs fichiers_test resultats_fichiers_test
+ 1329  ls
+ 1330  history
+ 1331  ls
+ 1332  cd ../
+ 1333  ls
+ 1334  cd data/
+ 1335  ls
+ 1336  cp -r /home/gueyes/RECHERCHE/QUBO/LINEARISATION/DECOMPL/BENCHMARK/test* .
+ 1337  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_8/ .
+ 1338  ls
+ 1339  cd ../bin
+ 1340  ls
+ 1341  more list_nb_nodes_8 
+ 1342  cp list_nb_nodes_8 list_nb_nodes_8_old
+ 1343  ls
+ 1344  gedit list_nb_nodes_8 &
+ 1345  cd ../data/
+ 1346  cd ..
+ 1347  cd bin/
+ 1348  find ../data/nb_nodes_8/ -name "*.txt" | list_nb_nodes_8.txt
+ 1349  find ../data/nb_nodes_8/ -name "*.txt" > list_nb_nodes_8.txt
+ 1350  gedit list_nb_nodes_8.txt &
+ 1351  ls
+ 1352  rm list_nb_nodes_8_old 
+ 1353  rm list_nb_nodes_8
+ 1354  ls
+ 1355  cp list_nb_nodes_8.txt list_nb_nodes_8_old.txt
+ 1356  gedit list_nb_nodes_8.txt &
+ 1357  cd ../data/
+ 1358  history
+ 1359  cd ../bin/
+ 1360  make -f makecliquesarcs cliquesarcs 
+ 1361  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1362  make -f makecliquesarcs cliquesarcs 
+ 1363  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1364  make -f makecliquesarcs cliquesarcs 
+ 1365  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1366  make -f makecliquesarcs cliquesarcs 
+ 1367  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1368  make -f makecliquesarcs cliquesarcs 
+ 1369  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1370  gedit ../h/lecture.h 
+ 1371  make -f makecliquesarcs cliquesarcs 
+ 1372  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1373  make -f makecliquesarcs cliquesarcs 
+ 1374  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1375  make -f makecliquesarcs cliquesarcs 
+ 1376  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1377  make -f makecliquesarcs cliquesarcs 
+ 1378  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1379  make -f makecliquesarcs cliquesarcs 
+ 1380  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1381  make -f makecliquesarcs cliquesarcs 
+ 1382  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1383  make -f makecliquesarcs cliquesarcs 
+ 1384  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1385  find -name "*.txt
+ 1386  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1387  make -f makecliquesarcs cliquesarcs 
+ 1388  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1389  make -f makecliquesarcs cliquesarcs 
+ 1390  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1391  make -f makecliquesarcs cliquesarcs 
+ 1392  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1393  make -f makecliquesarcs cliquesarcs 
+ 1394  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1395  make -f makecliquesarcs cliquesarcs 
+ 1396  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1397  make -f makecliquesarcs cliquesarcs 
+ 1398  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1399  make -f makecliquesarcs cliquesarcs 
+ 1400  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1401  make -f makecliquesarcs cliquesarcs 
+ 1402  ls
+ 1403  ./cliquesarcs fichiers_test resultats_fichiers_test 
+ 1404  ls
+ 1405  gedit list_nb_nodes_8.txt &
+ 1406  make -f makecliquesarcs cliquesarcs 
+ 1407  ./cliquesarcs fichiers_test resultats_fichiers_test 
+ 1408  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1409  ./cliquesarcs fichiers_test resultats_fichiers_test 
+ 1410  make -f makecliquesarcs cliquesarcs 
+ 1411  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1412  make -f makecliquesarcs cliquesarcs 
+ 1413  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1414  make -f makecliquesarcs cliquesarcs 
+ 1415  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1416  make -f makecliquesarcs cliquesarcs 
+ 1417  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1418  make -f makecliquesarcs cliquesarcs 
+ 1419  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1420  make -f makecliquesarcs cliquesarcs 
+ 1421  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1422  make -f makecliquesarcs cliquesarcs 
+ 1423  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1424  make -f makecliquesarcs cliquesarcs 
+ 1425  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1426  make -f makecliquesarcs cliquesarcs 
+ 1427  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1428  make -f makecliquesarcs cliquesarcs 
+ 1429  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1430  make -f makecliquesarcs cliquesarcs 
+ 1431  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1432  make -f makecliquesarcs cliquesarcs 
+ 1433  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1434  make -f makecliquesarcs cliquesarcs 
+ 1435  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1436  make -f makecliquesarcs cliquesarcs 
+ 1437  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1438  make -f makecliquesarcs cliquesarcs 
+ 1439  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1440  make -f makecliquesarcs cliquesarcs 
+ 1441  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1442  make -f makecliquesarcs cliquesarcs 
+ 1443  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1444  make -f makecliquesarcs cliquesarcs 
+ 1445  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1446  make -f makecliquesarcs cliquesarcs 
+ 1447  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1448  make -f makecliquesarcs cliquesarcs 
+ 1449  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1450  ls
+ 1451  rm resultats_list_nb_nodes_8.txt 
+ 1452  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1453  rm resultats_list_nb_nodes_8.txt 
+ 1454  make -f makecliquesarcs cliquesarcs 
+ 1455  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8.txt
+ 1456  history
+ 1457  cd ..
+ 1458  ls
+ 1459  cd data
+ 1460  ls
+ 1461  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_10/ .
+ 1462  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_12/ .
+ 1463  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_15/ .
+ 1464  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_20/ .
+ 1465  cd ../bin/
+ 1466  ls
+ 1467  more list_nb_nodes_10.txt 
+ 1468  ls
+ 1469  more list_nb_nodes_10.txt 
+ 1470  ls
+ 1471  cd ../data/
+ 1472  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_20/ .
+ 1473  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_15/ .
+ 1474  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_12/ .
+ 1475  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_10/ .
+ 1476  cd ../bin/
+ 1477  ls
+ 1478  find ../data/nb_nodes_10/ -name "*.txt" > list_nb_nodes_10.txt
+ 1479  more list_nb_nodes_10.txt 
+ 1480  find ../data/nb_nodes_12/ -name "*.txt" > list_nb_nodes_12.txt
+ 1481  find ../data/nb_nodes_15/ -name "*.txt" > list_nb_nodes_15.txt
+ 1482  find ../data/nb_nodes_20/ -name "*.txt" > list_nb_nodes_20.txt
+ 1483  more list_nb_nodes_20.txt 
+ 1484  ./cliquesarcs list_nb_nodes_10.txt resultats_list_nb_nodes_10.txt
+ 1485  ./cliquesarcs list_nb_nodes_12.txt resultats_list_nb_nodes_12.txt
+ 1486  ./cliquesarcs list_nb_nodes_15.txt resultats_list_nb_nodes_15.txt
+ 1487  ./cliquesarcs list_nb_nodes_20.txt resultats_list_nb_nodes_20.txt
+ 1488  cd ../data
+ 1489  ls
+ 1490  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_25/ .
+ 1491  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_30/ .
+ 1492  cd ../bin/
+ 1493  find ../data/nb_nodes_25/ -name "*.txt" > list_nb_nodes_25.txt
+ 1494  find ../data/nb_nodes_30/ -name "*.txt" > list_nb_nodes_30.txt
+ 1495  ./cliquesarcs list_nb_nodes_25.txt resultats_list_nb_nodes_25.txt
+ 1496  more resultats_list_nb_nodes_25.txt
+ 1497  cd ../data/
+ 1498  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_30/ .
+ 1499  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_25/ .
+ 1500  cd ../bin/
+ 1501  ls
+ 1502  find ../data/nb_nodes_30/ -name "*.txt" > list_nb_nodes_30.txt
+ 1503  find ../data/nb_nodes_25/ -name "*.txt" > list_nb_nodes_25.txt
+ 1504  more list_nb_nodes_25.txt
+ 1505  ./cliquesarcs list_nb_nodes_25.txt resultats_list_nb_nodes_25.txt
+ 1506  ./cliquesarcs list_nb_nodes_30.txt resultats_list_nb_nodes_30.txt
+ 1507  cd ../data/
+ 1508  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_50/ .
+ 1509  cd ../bin/
+ 1510  find ../data/nb_nodes_50/ -name "*.txt" > list_nb_nodes_50.txt
+ 1511  more list_nb_nodes_50.txt
+ 1512  ./cliquesarcs list_nb_nodes_50.txt resultats_list_nb_nodes_50.txt
+ 1513  cd nb_nodes_8/
+ 1514  ls
+ 1515  cd square/
+ 1516  ls
+ 1517  cd radius_14.387894876852267/
+ 1518  ls
+ 1519  cd min_node_connectivity_3/
+ 1520  ls
+ 1521  cd occupation_0.4/
+ 1522  ls
+ 1523  cd 1/
+ 1524  ls
+ 1525  gedit constant_weight_0.2538725488622931.txt &
+ 1526  exit
+ 1527  ls
+ 1528  gedit ../cpp/cmpuf_hospitals.cpp  &
+ 1529  make -f makecliquesarcs cliquesarcs 
+ 1530  history
+ 1531  make -f ../Makefile cmpuf_hospitals 
+ 1532  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1533  make -f ../Makefile cmpuf_hospitals 
+ 1534  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1535  make -f ../Makefile cmpuf_hospitals 
+ 1536  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1537  make -f ../Makefile cmpuf_hospitals 
+ 1538  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1539  make -f ../Makefile cmpuf_hospitals 
+ 1540  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1541  make -f ../Makefile cmpuf_hospitals 
+ 1542  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1543  make -f ../Makefile cmpuf_hospitals 
+ 1544  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 3000
+ 1545  make -f ../Makefile cmpuf_hospitals 
+ 1546  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 30000
+ 1547  gedit ../cpp/modele.cpp &
+ 1548  make -f ../Makefile cmpuf_hospitals 
+ 1549  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 30000
+ 1550  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.02 20 20 30000
+ 1551  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 20 30000
+ 1552  make -f ../Makefile cmpuf_hospitals 
+ 1553  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 20 30000
+ 1554  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 50 30000
+ 1555  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1556  make -f ../Makefile cmpuf_hospitals 
+ 1557  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 30 30000
+ 1558  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1559  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 40 30000
+ 1560  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 35 30000
+ 1561  make -f ../Makefile cmpuf_hospitals 
+ 1562  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 30 30000
+ 1563  make -f ../Makefile cmpuf_hospitals 
+ 1564  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 30 30000
+ 1565  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital246 e 4 0.00 20 40 30000
+ 1566  gedit calgaryhospital30 &
+ 1567  cd ../V10-1/bin/
+ 1568  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1569  make -f ../Makefile cmpuf_hospitals 
+ 1570  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital30 e 7 0.00 20 40 30000
+ 1571  make -f ../Makefile cmpuf_hospitals 
+ 1572  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 7 0.00 20 40 30000
+ 1573  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 7 0.00 10 40 30000
+ 1574  make -f ../Makefile cmpuf_hospitals 
+ 1575  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 7 0.00 10 40 30000
+ 1576  make -f ../Makefile cmpuf_hospitals 
+ 1577  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 7 0.00 10 40 30000
+ 1578  make -f ../Makefile cmpuf_hospitals 
+ 1579  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 7 0.00 10 40 30000
+ 1580  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1581  make -f ../Makefile cmpuf_hospitals 
+ 1582  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1583  make -f ../Makefile cmpuf_hospitals 
+ 1584  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1585  make -f ../Makefile cmpuf_hospitals 
+ 1586  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1587  make -f ../Makefile cmpuf_hospitals 
+ 1588  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1589  make -f ../Makefile cmpuf_hospitals 
+ 1590  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1591  make -f ../Makefile cmpuf_hospitals 
+ 1592  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1593  make -f ../Makefile cmpuf_hospitals 
+ 1594  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1595  make -f ../Makefile cmpuf_hospitals 
+ 1596  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1597  make -f ../Makefile cmpuf_hospitals 
+ 1598  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1599  make -f ../Makefile cmpuf_hospitals 
+ 1600  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital20 e 6 0.00 10 40 30000
+ 1601  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 6 0.00 10 40 30000
+ 1602  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 5 0.00 10 40 30000
+ 1603  make -f ../Makefile cmpuf_hospitals 
+ 1604  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 5 0.00 10 40 30000
+ 1605  make -f ../Makefile cmpuf_hospitals 
+ 1606  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 5 0.00 10 40 30000
+ 1607  make -f ../Makefile cmpuf_hospitals 
+ 1608  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 5 0.00 10 40 30000
+ 1609  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 6 0.00 5 40 30000
+ 1610  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 6 0.00 3 40 30000
+ 1611  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 4 0.00 5 40 30000
+ 1612  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 5 0.00 5 40 30000
+ 1613  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 2 0.00 5 40 30000
+ 1614  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 3 0.00 5 40 30000
+ 1615  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital10 e 4 0.00 5 40 30000
+ 1616  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 4 0.00 10 40 30000
+ 1617  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital6 e 3 0.00 3 40 30000
+ 1618  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital6 e 4 0.00 3 40 30000
+ 1619  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital6 e 5 0.00 3 40 30000
+ 1620  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 4 0.00 10 40 30000
+ 1621  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 5 0.00 10 40 30000
+ 1622  make -f ../Makefile cmpuf_hospitals 
+ 1623  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital18 e 5 0.00 10 40 30000
+ 1624  rm results2024_gary*
+ 1625  rm solgreedy_garyhospital*
+ 1626  rm solopt_garyhospital*
+ 1627  ls -t -l
+ 1628  cd ../BENCHMARK/
+ 1629  ls
+ 1630  cp calgaryhospital20 calgaryhospital18
+ 1631  cp HOSPITAL/calgaryhospital20 HOSPITAL/calgaryhospital18
+ 1632  gedit HOSPITAL/calgaryhospital18 &
+ 1633  gedit calgaryhospital18 &
+ 1634  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital17 e 7 0.00 5 40 30000
+ 1635  make -f ../Makefile cmpuf_hospitals 
+ 1636  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital17 e 7 0.00 5 40 30000
+ 1637  make -f ../Makefile cmpuf_hospitals 
+ 1638  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1639  make -f ../Makefile cmpuf_hospitals 
+ 1640  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1641  gedit HOSPITAL/calgaryhospital18 &
+ 1642  cp HOSPITAL/calgaryhospital18 HOSPITAL/calgaryhospital17 
+ 1643  gedit HOSPITAL/calgaryhospital17 &
+ 1644  cp calgaryhospital18 calgaryhospital17 
+ 1645  gedit calgaryhospital17 &
+ 1646  cp calgaryhospital18 calgaryhospital15
+ 1647  gedit calgaryhospital15 &
+ 1648  cp HOSPITAL/calgaryhospital18 HOSPITAL/calgaryhospital15 
+ 1649  gedit HOSPITAL/calgaryhospital15 &
+ 1650  gedit ../cpp/cmpuf_hospitals.cpp  &
+ 1651  make -f ../Makefile cmpuf_hospitals 
+ 1652  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1653  make -f ../Makefile cmpuf_hospitals 
+ 1654  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1655  make -f ../Makefile cmpuf_hospitals 
+ 1656  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1657  make -f ../Makefile cmpuf_hospitals 
+ 1658  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1659  make -f ../Makefile cmpuf_hospitals 
+ 1660  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1661  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 4 0.00 5 40 30000
+ 1662  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 3 0.00 5 40 30000
+ 1663  make -f ../Makefile cmpuf_hospitals 
+ 1664  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1665  make -f ../Makefile cmpuf_hospitals 
+ 1666  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1667  make -f ../Makefile cmpuf_hospitals 
+ 1668  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1669  make -f ../Makefile cmpuf_hospitals 
+ 1670  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1671  make -f ../Makefile cmpuf_hospitals 
+ 1672  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1673  make -f ../Makefile cmpuf_hospitals 
+ 1674  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1675  make -f ../Makefile cmpuf_hospitals 
+ 1676  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1677  make -f ../Makefile cmpuf_hospitals 
+ 1678  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1679  make -f ../Makefile cmpuf_hospitals 
+ 1680  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1681  make -f ../Makefile cmpuf_hospitals 
+ 1682  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1683  make -f ../Makefile cmpuf_hospitals 
+ 1684  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1685  make -f ../Makefile cmpuf_hospitals 
+ 1686  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1687  make -f ../Makefile cmpuf_hospitals 
+ 1688  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1689  make -f ../Makefile cmpuf_hospitals 
+ 1690  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1691  make -f ../Makefile cmpuf_hospitals 
+ 1692  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1693  make -f ../Makefile cmpuf_hospitals 
+ 1694  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1695  make -f ../Makefile cmpuf_hospitals 
+ 1696  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1697  make -f ../Makefile cmpuf_hospitals 
+ 1698  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1699  make -f ../Makefile cmpuf_hospitals 
+ 1700  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1701  make -f ../Makefile cmpuf_hospitals 
+ 1702  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1703  make -f ../Makefile cmpuf_hospitals 
+ 1704  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1705  make -f ../Makefile cmpuf_hospitals 
+ 1706  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1707  make -f ../Makefile cmpuf_hospitals 
+ 1708  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1709  make -f ../Makefile cmpuf_hospitals 
+ 1710  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1711  make -f ../Makefile cmpuf_hospitals 
+ 1712  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1713  make -f ../Makefile cmpuf_hospitals 
+ 1714  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1715  make -f ../Makefile cmpuf_hospitals 
+ 1716  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1717  make -f ../Makefile cmpuf_hospitals 
+ 1718  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1719  make -f ../Makefile cmpuf_hospitals 
+ 1720  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1721  make -f ../Makefile cmpuf_hospitals 
+ 1722  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1723  make -f ../Makefile cmpuf_hospitals 
+ 1724  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1725  make -f ../Makefile cmpuf_hospitals 
+ 1726  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1727  make -f ../Makefile cmpuf_hospitals 
+ 1728  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1729  make -f ../Makefile cmpuf_hospitals 
+ 1730  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1731  make -f ../Makefile cmpuf_hospitals 
+ 1732  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1733  make -f ../Makefile cmpuf_hospitals 
+ 1734  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1735  make -f ../Makefile cmpuf_hospitals 
+ 1736  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1737  make -f ../Makefile cmpuf_hospitals 
+ 1738  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1739  make -f ../Makefile cmpuf_hospitals 
+ 1740  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1741  make -f ../Makefile cmpuf_hospitals 
+ 1742  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1743  make -f ../Makefile cmpuf_hospitals 
+ 1744  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1745  make -f ../Makefile cmpuf_hospitals 
+ 1746  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1747  make -f ../Makefile cmpuf_hospitals 
+ 1748  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1749  make -f ../Makefile cmpuf_hospitals 
+ 1750  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1751  make -f ../Makefile cmpuf_hospitals 
+ 1752  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1753  make -f ../Makefile cmpuf_hospitals 
+ 1754  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1755  make -f ../Makefile cmpuf_hospitals 
+ 1756  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1757  rm *calgaryhospital15*
+ 1758  ls -l -t
+ 1759  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 3 0.00 5 40 30000
+ 1760  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1761  make -f ../Makefile cmpuf_hospitals 
+ 1762  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1763  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1764  make -f ../Makefile cmpuf_hospitals 
+ 1765  gedit ../cpp/cmpuf_hospitals.cpp &make -f ../Makefile cmpuf_hospitals 
+ 1766  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1767  gedit ../cpp/cmpuf_hospitals.cpp &make -f ../Makefile cmpuf_hospitals 
+ 1768  make -f ../Makefile cmpuf_hospitals 
+ 1769  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1770  make -f ../Makefile cmpuf_hospitals 
+ 1771  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1772  make -f ../Makefile cmpuf_hospitals 
+ 1773  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1774  make -f ../Makefile cmpuf_hospitals 
+ 1775  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1776  make -f ../Makefile cmpuf_hospitals 
+ 1777  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1778  make -f ../Makefile cmpuf_hospitals 
+ 1779  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1780  make -f ../Makefile cmpuf_hospitals 
+ 1781  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1782  make -f ../Makefile cmpuf_hospitals 
+ 1783  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1784  make -f ../Makefile cmpuf_hospitals 
+ 1785  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1786  make -f ../Makefile cmpuf_hospitals 
+ 1787  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1788  make -f ../Makefile cmpuf_hospitals 
+ 1789  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1790  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1791  make -f ../Makefile cmpuf_hospitals 
+ 1792  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1793  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1794  make -f ../Makefile cmpuf_hospitals 
+ 1795  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1796  make -f ../Makefile cmpuf_hospitals 
+ 1797  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1798  julia
+ 1799  ./exec.sh 
+ 1800  rm *calgaryhospital15*
+ 1801  ls -l -t
+ 1802  more solcent_calgaryhospital15_5_0.00_5_40_30000 
+ 1803  rm *calgaryhospital15*
+ 1804  more solcent_calgaryhospital15_5_0.00_5_40_30000 
+ 1805  cp solcent_calgaryhospital15_5_0.00_5_40_30000 ./solcent_calgaryhospital15_5_0.00_5_40_30000_a0.95_g1.csv
+ 1806  rm *calgaryhospital15*
+ 1807  cp solcent_calgaryhospital15_5_0.00_5_40_30000 /home/gueyes/RECHERCHE/CMPUF/RESULTSHOSPITALS/solcent_calgaryhospital15_5_0.00_5_40_30000_a0.95_g1.csv
+ 1808  rm *calgaryhospital15*
+ 1809  cp solcent_calgaryhospital15_5_0.00_5_40_30000 /home/gueyes/RECHERCHE/CMPUF/RESULTSHOSPITALS/solcent_calgaryhospital15_5_0.00_5_40_30000_b0_g10.csv
+ 1810  rm *calgaryhospital15*
+ 1811  cp solcent_calgaryhospital15_5_0.00_5_40_30000 /home/gueyes/RECHERCHE/CMPUF/RESULTSHOSPITALS/solcent_calgaryhospital15_5_0.00_5_40_30000_b0.001_g1.5.csv
+ 1812  rm *calgaryhospital15*
+ 1813  cp solcent_calgaryhospital15_5_0.00_5_40_30000 /home/gueyes/RECHERCHE/CMPUF/RESULTSHOSPITALS/solcent_calgaryhospital15_5_0.00_5_40_30000_b0.0001_g2.csv
+ 1814  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1815  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1816  make -f ../Makefile cmpuf_hospitals 
+ 1817  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1818  make -f ../Makefile cmpuf_hospitals 
+ 1819  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1820  make -f ../Makefile cmpuf_hospitals 
+ 1821  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1822  make -f ../Makefile cmpuf_hospitals 
+ 1823  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1824  make -f ../Makefile cmpuf_hospitals 
+ 1825  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1826  make -f ../Makefile cmpuf_hospitals 
+ 1827  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1828  julia
+ 1829  gedit ../cpp/cmpuf_hospitals.cpp &
+ 1830  make -f ../Makefile cmpuf_hospitals 
+ 1831  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1832  make -f ../Makefile cmpuf_hospitals 
+ 1833  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1834  make -f ../Makefile cmpuf_hospitals 
+ 1835  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1836  make -f ../Makefile cmpuf_hospitals 
+ 1837  ./cmpuf_hospitals ../../BENCHMARK/calgaryhospital15 e 5 0.00 5 40 30000
+ 1838  cd /opt/ibm/ILOG/
+ 1839  ls
+ 1840  cd CPLEX_Studio201/
+ 1841  ls
+ 1842  cd cplex/
+ 1843  ls
+ 1844  cd examples/
+ 1845  cd x86-64_linux/static_pic/
+ 1846  ls
+ 1847  cd DECOMPL_2024/
+ 1848  ls
+ 1849  cd bin/
+ 1850  history
+ 1851  cd ../data/
+ 1852  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_30/ .
+ 1853  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_80/ .
+ 1854  ls
+ 1855  cd ../bin/
+ 1856  find ../data/nb_nodes_80/ -name "*.txt" > list_nb_nodes_80.txt
+ 1857  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80.txt
+ 1858  more list_nb_nodes_80.txt 
+ 1859  cd ../data/
+ 1860  ls
+ 1861  cd nb_nodes_80/
+ 1862  ls
+ 1863  cd freespace/
+ 1864  ls
+ 1865  cd 0
+ 1866  ls
+ 1867  cd
+ 1868  ls
+ 1869  cd /opt/ibm/ILOG/CPLEX_Studio201/cplex/examples/x86-64_linux/static_pic/
+ 1870  ls
+ 1871  cd DECOMPL_2024/
+ 1872  ls
+ 1873  cd bin/
+ 1874  find ../data/nb_nodes_80/ -name "*.txt" > list_nb_nodes_80.txt
+ 1875  more list_nb_nodes_80.txt
+ 1876  cd ../data/
+ 1877  cp -r /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_80/ .
+ 1878  cd ../bin/
+ 1879  ls
+ 1880  find ../data/nb_nodes_80/ -name "*.txt" > list_nb_nodes_80.txt
+ 1881  more list_nb_nodes_80.txt 
+ 1882  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80.txt
+ 1883  python3.5 ising.py 
+ 1884  cd nb_nodes_10
+ 1885  ls
+ 1886  cd freespace/
+ 1887  ls
+ 1888  cd 0/
+ 1889  ls
+ 1890  more constant_weight_0.5817764173314439.txt 
+ 1891  cd /opt/ibm/ILOG/CPLEX_Studio201/cplex/examples/x86-64_linux/static_pic/DECOMPL_2024/
+ 1892  ls
+ 1893  cd cpp/
+ 1894  ls
+ 1895  gedit cliquesarcs.cpp 
+ 1896  history
+ 1897  ls
+ 1898  cd bin
+ 1899  gedit ../cpp/cliquesarcs.cpp &
+ 1900  make -f makecliquesarcs cliquesarcs 
+ 1901  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8_21_06_2024.txt
+ 1902  make -f makecliquesarcs cliquesarcs 
+ 1903  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8_21_06_2024.txt
+ 1904  gedit ../data/nb_nodes_8/square/radius_14.387894876852267/min_node_connectivity_3/occupation_0.4/1/constant_weight_0.2538725488622931.txt &
+ 1905  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8_21_06_2024.txt
+ 1906  python3.5 ex.2.1.10.cnot.py 
+ 1907  python3.5 simulation_portesquantiques_d2.py 
+ 1908  ls
+ 1909  cd resources
+ 1910  ls
+ 1911  ./etcher-util 
+ 1912  cd ..
+ 1913  ls
+ 1914  sudo apt install balenaEtcher 
+ 1915  sudo apt install balena-etcher 
+ 1916  cd ..
+ 1917  ls
+ 1918  ./balenaEtcher-1.7.9-ia32.AppImage 
+ 1919  ./balenaEtcher-1.7.9-ia32.AppImage --appimage-extract
+ 1920  ls
+ 1921  ./balenaEtcher-1.7.9-ia32.AppImage 
+ 1922  cd squashfs-root/
+ 1923  ls
+ 1924  ./AppRun 
+ 1925  ./balena-etcher-electron.bin
+ 1926  ./balena-etcher-electron
+ 1927  python3.5
+ 1928  python3.9
+ 1929  python3 qaa_qubo.py 
+ 1930  python3.8 qaa_qubo.py 
+ 1931  python3.9 qaa_qubo.py 
+ 1932  history
+ 1933  python3.5 qaa_qubo.py 
+ 1934  python3.5 hellopulser.py 
+ 1935  exit
+ 1936  cd /opt/ibm/ILOG/
+ 1937  ls
+ 1938  cd CPLEX_Studio201/
+ 1939  ls
+ 1940  cd cplex/examples/x86-64_linux/static_pic/
+ 1941  ls
+ 1942  cd DECOMPL_2024/
+ 1943  ls
+ 1944  cd bin
+ 1945  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8_21_06_2024.txt
+ 1946  ls
+ 1947  rm resultats_list_nb_nodes_80.txt 
+ 1948  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1949  gedit ../cpp/cliquesarcs.cpp &
+ 1950  make -f makecliquesarcs cliquesarcs 
+ 1951  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8_25_07_2024.txt
+ 1952  make -f makecliquesarcs cliquesarcs 
+ 1953  ./cliquesarcs list_nb_nodes_8.txt resultats_list_nb_nodes_8_25_07_2024.txt
+ 1954  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1955  make -f makecliquesarcs cliquesarcs 
+ 1956  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1957  make -f makecliquesarcs cliquesarcs 
+ 1958  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1959  make -f makecliquesarcs cliquesarcs 
+ 1960  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1961  make -f makecliquesarcs cliquesarcs 
+ 1962  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1963  make -f makecliquesarcs cliquesarcs 
+ 1964  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1965  rm resultats_list_nb_nodes_80_25_07_2024.txt
+ 1966  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_25_07_2024.txt
+ 1967  python3
+ 1968  pip3 install panda
+ 1969  pip install panda
+ 1970  python3.8
+ 1971  python3.9
+ 1972  python3.5
+ 1973  ls
+ 1974  cd ..
+ 1975  history
+ 1976  cd
+ 1977  history > commandes_history.txt
+ 1978  ls
+ 1979  rm commandes_history.txt 
+ 1980  exit
+ 1981  gedit ../cpp/cliquesarcs.cpp &
+ 1982  make -f makecliquesarcs cliquesarcs 
+ 1983  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_26_07_2024.txt
+ 1984  make -f makecliquesarcs cliquesarcs 
+ 1985  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_26_07_2024.txt
+ 1986  rm resultats_list_nb_nodes_80_26_07_2024.txt
+ 1987  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_26_07_2024.txt
+ 1988  make -f makecliquesarcs cliquesarcs 
+ 1989  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_26_07_2024.txt
+ 1990  rm resultats_list_nb_nodes_80_26_07_2024.txt
+ 1991  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_26_07_2024.txt
+ 1992  make -f makecliquesarcs cliquesarcs 
+ 1993  ./cliquesarcs list_nb_nodes_80.txt resultats_list_nb_nodes_80_26_07_2024.txt
+ 1994  find /home/gueyes/RECHERCHE/PASQAL/data/qubo-collab-pasqal-universite-avignon-main-data-pasqal-instances-qubos/data/pasqal-instances/qubos/nb_nodes_100/ -name "*.txt" > list_nb_nodes_100.txt
+ 1995  ls
+ 1996  ./cliquesarcs list_nb_nodes_100.txt resultats_list_nb_nodes_100_28_07_2024.txt
+ 1997  cp /home/gueyes/RECHERCHE/QUBO/CODES-V2/list_nb_nodes_200.csv
+ 1998  cp /home/gueyes/RECHERCHE/QUBO/CODES-V2/list_nb_nodes_200.csv ./list_nb_nodes_200.txt
+ 1999  ./cliquesarcs list_nb_nodes_200.txt resultats_list_nb_nodes_200_01_08_2024.txt
+ 2000  cd /opt/ibm/ILOG/CPLEX_Studio201/cplex/examples/x86-64_linux/static_pic/
+ 2001  ls
+ 2002  cp -r V10-1 ./V10-06-08-20224
+ 2003  ls
+ 2004  cd V10-06-08-20224/
+ 2005  ls
+ 2006  cd cpp/
+ 2007  ls
+ 2008  gedit ../MakeCMpuf&
+ 2009  ls
+ 2010  cd ..
+ 2011  ls
+ 2012  cd ../
+ 2013  rn V10-06-08-20224/ V10-06-08-2024/
+ 2014  rename V10-06-08-20224/ V10-06-08-2024/
+ 2015  mv V10-06-08-20224/ V10-06-08-2024/
+ 2016  cd V10-06-08-2024/
+ 2017  ls
+ 2018  gedit Makefile &
+ 2019  cd bin/
+ 2020  ls
+ 2021  make -f ../Make cmpuf
+ 2022  make -f ../Makefile cmpuf
+ 2023  make -f ../MakeCMpuf cmpuf
+ 2024  make -f ../Makefile cmpuf
+ 2025  make -f ../Makefile cmpuf_hospitals 
+ 2026  gedit ../cpp/cmpuf_hospitals.cpp &
+ 2027  make -f ../Makefile cmpuf_hospitals 
+ 2028  gedit ../cpp/cmpuf_hospitals.cpp &
+ 2029  make -f ../Makefile cmpuf_hospitals 
+ 2030  history
+ 2031  history > commandes

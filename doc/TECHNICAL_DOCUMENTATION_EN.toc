@@ -1,0 +1,31 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Purpose and Software Scope}{2}{section.1}%
+\contentsline {section}{\numberline {2}Notation and Input Parameters}{2}{section.2}%
+\contentsline {section}{\numberline {3}Capacity and Scenario Generation}{2}{section.3}%
+\contentsline {section}{\numberline {4}Implemented Two-Stage Stochastic Model}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Variables}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Expected-Utility Objective}{3}{subsection.4.2}%
+\contentsline {paragraph}{Implementation caveat.}{3}{section*.2}%
+\contentsline {subsection}{\numberline {4.3}Constraints}{3}{subsection.4.3}%
+\contentsline {section}{\numberline {5}P-Median Preprocessing}{4}{section.5}%
+\contentsline {section}{\numberline {6}Solution Algorithms}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}P-Median Evaluation}{4}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Greedy Construction}{4}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Local Search}{4}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Exact MIP and Scenario Models}{4}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Location Indicators}{5}{section.7}%
+\contentsline {section}{\numberline {8}Test File Formats}{5}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Instance-List File}{5}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Standard or Hospital Instance}{5}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Geometric Instance}{5}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Stochastic Parameter File}{5}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Build and Test Procedure}{6}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Implemented Test Plan}{6}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Result File Formats}{7}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Naming}{7}{subsection.10.1}%
+\contentsline {paragraph}{Current limitation.}{7}{section*.3}%
+\contentsline {subsection}{\numberline {10.2}Main results2026 File}{7}{subsection.10.2}%
+\contentsline {paragraph}{Current header anomaly.}{7}{section*.4}%
+\contentsline {subsection}{\numberline {10.3}solgreedy, solopt, and solcent}{7}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Interpretation Caveats}{8}{section.11}%
+\contentsline {section}{\numberline {12}Code Traceability}{8}{section.12}%

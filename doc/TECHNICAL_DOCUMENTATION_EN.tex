@@ -1,0 +1,465 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern,amsmath,amssymb,booktabs,longtable,array}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{xcolor,listings,hyperref,enumitem,microtype}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!60!black}
+\setlist{nosep}
+\lstset{basicstyle=\ttfamily\small,frame=single,breaklines=true,
+columns=fullflexible,keepspaces=true,showstringspaces=false}
+\newcommand{\code}[1]{\texttt{#1}}
+\title{CMPUF Project Technical Documentation\\
+\large Stochastic Model, Test Data, Solution Methods, and Results}
+\author{CMPUF Project}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Purpose and Software Scope}
+
+The \code{cmpuf} program solves a capacitated facility location problem in
+which capacities are subject to random disruptions. Facility locations are
+first-stage decisions shared by every scenario. Once a capacity scenario is
+known, customer flows are reoptimized. The implementation is therefore a
+discrete two-stage stochastic program with continuous recourse.
+
+The maintained executable combines:
+\begin{itemize}
+\item \code{cpp/cmpuf.cpp}: input, scenarios, indicators, and main program;
+\item \code{cpp/modele.cpp}: CPLEX model, greedy heuristic, and local search;
+\item \code{cpp/pmedian.cpp}: p-median preprocessing;
+\item \code{cpp/transport.cpp}: independent scenario models;
+\item \code{cpp/tri.cpp}: distance-based neighborhood sorting.
+\end{itemize}
+
+\section{Notation and Input Parameters}
+
+Let $N=\{0,\ldots,n-1\}$ be both the customer set and the candidate-location
+set, $I=\{0,\ldots,m-1\}$ the facility set,
+$R=\{0,\ldots,ncap-1\}$ the capacity-state set, and
+$\Omega=\{0,\ldots,K-1\}$ the scenario set, where $K=ncap^m$.
+
+\begin{longtable}{>{$}l<{$}p{11cm}}
+\toprule
+\text{Symbol}&\text{Meaning}\\ \midrule \endhead
+w_j&Demand of customer $j$.\\
+H=\sum_jw_j&Total demand.\\
+d_{lj}&Distance or cost from location $l$ to customer $j$, stored as
+\code{profit[l][j]}.\\
+D_{\max}=\max_{l,j}d_{lj}&Largest distance in the instance.\\
+C_i^m&Demand assigned to facility $i$ by p-median preprocessing.\\
+\gamma&Nominal-capacity multiplier.\\
+S_i=\gamma C_i^m&Nominal capacity of facility $i$.\\
+a_r&Probability weight read from \code{walpha}.\\
+b_r&Capacity multiplier read from \code{wbeta}.\\
+\alpha&Overall disruption parameter.\\
+C_{ki}&Capacity of facility $i$ in scenario $k$.\\
+P_k&Probability of scenario $k$.\\ \bottomrule
+\end{longtable}
+
+The member \code{beta} is read, stored, and printed, but it does not occur in
+an active capacity formula. Effective multipliers are read directly from
+\code{wbeta}.
+
+\section{Capacity and Scenario Generation}
+
+P-median capacities are scaled as
+\[
+S_i=\gamma C_i^m.
+\]
+The disrupted and nominal states are
+\begin{align}
+\operatorname{cap}_{ir}&=b_rS_i &&r=0,\ldots,ncap-2,\\
+\operatorname{cap}_{i,ncap-1}&=S_i.
+\end{align}
+The supplied parameter file therefore produces $0$, $0.33S_i$, $0.66S_i$,
+and $S_i$.
+
+Marginal probabilities are
+\begin{align}
+p_r&=\alpha a_r &&r=0,\ldots,ncap-2,\\
+p_{ncap-1}&=1-\alpha.
+\end{align}
+The $a_r$ values must sum to one. The supplied weights satisfy
+$0.10+0.40+0.50=1$.
+
+A scenario is $T_k=(T_{k0},\ldots,T_{k,m-1})\in R^m$. The recursive
+\code{Init\_T} function enumerates the full Cartesian product and computes
+\[
+C_{ki}=\operatorname{cap}_{i,T_{ki}},
+\qquad
+P_k=\prod_{i\in I}p_{T_{ki}}.
+\]
+This produces $K=ncap^m$ scenarios and approximately $n^2K$ flow variables.
+Scenario enumeration is the main scalability limitation.
+
+\section{Implemented Two-Stage Stochastic Model}
+
+\subsection{Variables}
+
+First-stage variables are
+\[
+x_{il}=\begin{cases}
+1&\text{if facility $i$ is located at node $l$,}\\
+0&\text{otherwise.}
+\end{cases}
+\]
+They are created in $[0,1]$ and converted to integer variables through
+\code{IloConversion}. Recourse variables
+$z_{ljk}\geq0$ represent the amount shipped from location $l$ to customer
+$j$ in scenario $k$.
+
+\subsection{Expected-Utility Objective}
+
+The implemented objective is
+\begin{equation}
+\max\quad
+\sum_{k\in\Omega}P_k\sum_{l\in N}\sum_{j\in N}
+(D_{\max}-d_{lj})z_{ljk}.
+\label{eq:objective}
+\end{equation}
+When total delivered quantity is fixed, this is equivalent to expected
+transportation-cost minimization. The transformation gives nonnegative
+coefficients.
+
+\paragraph{Implementation caveat.}
+Demand is imposed as a lower bound rather than an equality. With excess
+capacity and positive $D_{\max}-d_{lj}$, the solver may ship more than demand.
+In that case, \eqref{eq:objective} is not strictly equivalent to minimizing
+cost for exactly satisfied demand.
+
+\subsection{Constraints}
+
+Each facility is located exactly once:
+\begin{equation}
+\sum_{l\in N}x_{il}=1,\qquad i\in I.
+\label{eq:location}
+\end{equation}
+In the active path, these constraints are added progressively by the greedy
+heuristic and remain in the model used for the exact solve.
+
+For every location and scenario:
+\begin{equation}
+\sum_{j\in N}z_{ljk}\leq\sum_{i\in I}C_{ki}x_{il},
+\qquad l\in N,\ k\in\Omega.
+\end{equation}
+For every customer and scenario:
+\begin{equation}
+\sum_{l\in N}z_{ljk}\geq w_j,
+\qquad j\in N,\ k\in\Omega.
+\end{equation}
+
+The optional constraint $\sum_i x_{il}\leq1$ is implemented by
+\code{Init\_contraintes\_x\_x}, but its call is commented out. Facility
+co-location is therefore allowed.
+
+The $x$ variables are here-and-now decisions, while $z$ variables are
+scenario-dependent recourse. Benders annotations place $x$ in the master and
+partition $z$ by scenario. The exact run uses CPLEX's automatic Benders
+strategy ($-1$).
+
+\section{P-Median Preprocessing}
+
+The preprocessing model uses $X_l\in\{0,\ldots,m\}$, the number of medians at
+node $l$, and continuous flows $z^P_{lj}$. It imposes
+\begin{align}
+\sum_lX_l&=m,\\
+z^P_{lj}&\leq w_jX_l,\\
+\sum_lz^P_{lj}&=w_j.
+\end{align}
+It maximizes $\sum_{l,j}(D_{\max}-d_{lj})z^P_{lj}$, which is equivalent to
+distance minimization because demand is satisfied at equality. Since $X_l$
+may exceed one, p-median co-location is allowed.
+
+The solution is expanded into $m$ individual facilities. For each one,
+$C_i^m$ is the flow assigned to its median and becomes its reference
+capacity in the stochastic model.
+
+\section{Solution Algorithms}
+
+\subsection{P-Median Evaluation}
+
+The p-median location vector is fixed in the stochastic model and all
+scenario flows are optimized. This produces \code{VMEDIAN1}. A local search
+from the same vector produces \code{VMEDIAN2}.
+
+\subsection{Greedy Construction}
+
+\code{CMpuf::MyGreedyHeuristic} locates facilities sequentially:
+\begin{enumerate}
+\item facilities $j>i$ are temporarily fixed to zero;
+\item constraint \eqref{eq:location} is added for facility $i$;
+\item CPLEX solves the partial model;
+\item the best location of $i$ is recorded and fixed;
+\item the temporary constraint is removed.
+\end{enumerate}
+The final value is \code{VGREEDY}.
+
+\subsection{Local Search}
+
+\code{Localsearch} performs best-improvement single-facility relocation. All
+locations are fixed, each facility is released in turn, and CPLEX finds its
+best new location. The best strictly improving move is accepted until no
+improvement remains.
+
+If the radius is smaller than $n$, each facility may move only among the
+\code{rayon} closest nodes to its initial position. \code{ROPTri} sorts these
+nodes. Local search is run from the greedy solution
+(\code{VGREEDYLS}) and from the p-median solution (\code{VMEDIAN2}).
+
+\subsection{Exact MIP and Scenario Models}
+
+If argument 2 is \code{e}, CPLEX solves the full MIP with the requested time
+limit and relative gap. Internal heuristic frequency and automatic Benders
+strategy are set to $-1$. The code accepts \emph{Optimal},
+\emph{OptimalTol}, \emph{SolLim}, and \emph{AbortTimeLim}; consequently,
+\code{VOPT} may be an incumbent at the time limit rather than a proven
+optimum. A best heuristic vector is computed, but its \code{MIPStart} call is
+commented out.
+
+After an exact run, \code{ResolutionScenarios} solves a separate
+transportation/location model for every known-capacity scenario and fills
+\code{SolScenarios} and \code{SolSupply}. Detailed scenario display is
+implemented but disabled in the main program.
+
+\section{Location Indicators}
+
+For $L=(L_0,\ldots,L_{m-1})$, centralization is the mean pairwise facility
+distance:
+\[
+\operatorname{cent}(L)=
+\frac{\sum_{0\leq i<j<m}d_{L_iL_j}}{m(m-1)/2}.
+\]
+If $q(L)$ is the number of distinct occupied locations, co-location is
+\[
+\operatorname{coloc}(L)=100\frac{m-q(L)}m.
+\]
+
+\section{Test File Formats}
+
+\subsection{Instance-List File}
+
+Argument 1 is not an instance itself. It is a text file containing one
+instance path per line:
+\begin{lstlisting}
+/absolute/path/to/instance1
+/absolute/path/to/instance2
+\end{lstlisting}
+For example, \code{../BENCHMARK/calgaryhospital15} contains the path of the
+actual instance. Paths must not contain spaces because they are read with
+\code{fscanf(file, "\%s", filename)}.
+
+\subsection{Standard or Hospital Instance}
+
+When \code{INPUT\_TYPE} is not \code{geometric}, the file contains:
+\begin{lstlisting}
+n
+w[0] ... w[n-1]
+d[0][0] ... d[0][n-1]
+...
+d[n-1][0] ... d[n-1][n-1]
+\end{lstlisting}
+
+\subsection{Geometric Instance}
+
+When \code{INPUT\_TYPE} is exactly \code{geometric}, the reader expects:
+\begin{lstlisting}
+n
+mtmp
+ptmp[0] ... ptmp[mtmp-1]
+w[0] ... w[n-1]
+d[0][0] ... d[n-1][n-1]
+\end{lstlisting}
+The temporary \code{ptmp} array is read but not subsequently used. Demand and
+matrix values are extracted through Concert stream operators.
+
+\subsection{Stochastic Parameter File}
+
+\code{parameters/param} follows:
+\begin{lstlisting}
+ncap
+a[0] ... a[ncap-2]
+b[0] ... b[ncap-2]
+\end{lstlisting}
+The supplied contents are:
+\begin{lstlisting}
+4
+0.10 0.40 0.50
+0.00 0.33 0.66
+\end{lstlisting}
+
+\section{Build and Test Procedure}
+
+From the project root, compile with:
+\begin{lstlisting}[language=bash]
+make clean
+make -j2 cmpuf
+\end{lstlisting}
+or:
+\begin{lstlisting}[language=bash]
+cmake --preset release
+cmake --build --preset cmpuf --parallel
+\end{lstlisting}
+The executable is \code{bin/cmpuf}.
+
+The program expects nine user arguments:
+\begin{lstlisting}[language=bash]
+./bin/cmpuf INSTANCE_LIST MODE M GAP LOCAL_RADIUS \
+  BB_RADIUS TIME_LIMIT PARAMETER_FILE INPUT_TYPE
+\end{lstlisting}
+
+\begin{longtable}{clp{8.8cm}}
+\toprule
+No.&Argument&Purpose\\ \midrule \endhead
+1&\code{INSTANCE\_LIST}&File containing one instance path per line.\\
+2&\code{MODE}&\code{e} enables the exact solution; other values run only
+heuristic evaluations.\\
+3&\code{M}&Number of facilities.\\
+4&\code{GAP}&CPLEX relative gap.\\
+5&\code{LOCAL\_RADIUS}&Local-search neighborhood size.\\
+6&\code{BB\_RADIUS}&Intended local branch-and-bound radius; calls are
+currently commented out.\\
+7&\code{TIME\_LIMIT}&CPLEX limit in seconds.\\
+8&\code{PARAMETER\_FILE}&File containing $ncap$, $a_r$, and $b_r$.\\
+9&\code{INPUT\_TYPE}&\code{geometric}, or conventionally \code{hospital} for
+the standard format.\\ \bottomrule
+\end{longtable}
+
+Example:
+\begin{lstlisting}[language=bash]
+./bin/cmpuf ../BENCHMARK/calgaryhospital15 e 4 0.00 \
+  5 40 30000 parameters/param hospital
+\end{lstlisting}
+
+\subsection{Implemented Test Plan}
+
+For each instance, p-median preprocessing is run once. Then $\gamma$ takes
+$1$, $1.25$, $1.50$, and $1.75$, while $\alpha$ ranges from $0$ to $1$ in
+steps of $0.1$. The value of $\beta$ remains zero. For every pair, the
+p-median location, greedy solution, and both local searches are evaluated.
+Mode \code{e} additionally runs the exact MIP. This gives theoretically
+$4\times11=44$ configurations per instance, subject to floating-point loop
+rounding.
+
+Recommended checks are:
+\begin{enumerate}
+\item run \code{./bin/cmpuf} without arguments and verify the argument-count
+error;
+\item begin with a small instance and short time limit;
+\item verify $\sum_{r<ncap-1}a_r=1$;
+\item ensure $n^2ncap^m$ fits available memory;
+\item verify that \code{results/hospital} exists and is writable;
+\item compare all five objective values.
+\end{enumerate}
+
+\section{Result File Formats}
+
+\subsection{Naming}
+
+Four hard-coded prefixes are used:
+\begin{lstlisting}
+results2026_v1_
+solgreedy_v1_
+solopt_v1_
+solcent_v1_
+\end{lstlisting}
+The suffix includes part of \code{argv[1]} followed by
+\code{\_M\_GAP\_LOCAL\_RADIUS\_BB\_RADIUS\_TIME\_LIMIT}.
+
+\paragraph{Current limitation.}
+\code{concat} uses \code{argv[1]+16} rather than extracting the final path
+component. Names depend on the instance-list path length and may be truncated,
+for example \code{garyhospital15}. Output directories are hard-coded absolute
+paths. Every output is opened in append mode.
+
+\subsection{Main results2026 File}
+
+Each numeric row contains 25 ampersand-separated fields:
+\begin{longtable}{clp{8.5cm}}
+\toprule
+No.&Field&Meaning\\ \midrule \endhead
+1&\code{n}&Number of nodes.\\
+2&\code{m}&Number of facilities.\\
+3--5&\code{Alpha}, \code{Beta}, \code{Gamma}&Test parameters.\\
+6&\code{VOPT}&Exact value, or $-1$ outside exact mode.\\
+7&\code{VGREEDY}&Greedy value.\\
+8&\code{VGREEDYLS}&Local-search value from greedy.\\
+9&\code{VMEDIAN1}&Stochastic value of p-median locations.\\
+10&\code{VMEDIAN2}&Local-search value from p-median.\\
+11--15&\code{cent\_*}&Centralization indicators.\\
+16--20&\code{coloc\_*}&Co-location percentages.\\
+21&\code{topt}&Exact-solution CPLEX time.\\
+22&\code{tgreedy}&Greedy time.\\
+23&\code{tgreedyls}&Local-search time from greedy.\\
+24&\code{tpmedian1}&P-median preprocessing time.\\
+25&\code{tpmedian2}&Local-search time from p-median.\\ \bottomrule
+\end{longtable}
+
+\paragraph{Current header anomaly.}
+The header call has 24 \code{\%s} placeholders for 25 labels and no line
+break. Thus \code{tpmedian2} is omitted and the first data row is joined to
+the header. Later numeric rows still contain the documented 25 fields.
+
+\subsection{solgreedy, solopt, and solcent}
+
+For every $(\alpha,\gamma)$ pair, \code{solgreedy} receives:
+\begin{lstlisting}
+Lls1[0] Lls1[1] ... Lls1[m-1]
+\end{lstlisting}
+This is the local-search solution from greedy, not the raw greedy vector.
+
+In exact mode, \code{solopt} receives:
+\begin{lstlisting}
+Lopt[0] Lopt[1] ... Lopt[m-1]
+\end{lstlisting}
+
+Also in exact mode, each tab-separated \code{solcent} row is:
+\begin{lstlisting}
+alpha    beta    gamma    VOPT    centralizationopt
+\end{lstlisting}
+
+Standard output prints a LaTeX-table-style row for every configuration and
+can be redirected to a report file.
+
+\section{Interpretation Caveats}
+
+\begin{itemize}
+\item The objective is expected utility, and its cost interpretation requires
+fixed delivered quantities.
+\item Demand uses $\geq$, so mathematical over-service is possible.
+\item Facility co-location is allowed.
+\item \code{beta} currently has no effect.
+\item scenarios and variables grow exponentially with $m$.
+\item \code{VOPT} at the time limit may not be proven optimal.
+\item repeated runs append to existing output files.
+\item \code{while(!feof(file1))} may attempt an additional iteration.
+\end{itemize}
+
+\section{Code Traceability}
+
+\begin{longtable}{p{5.2cm}p{9cm}}
+\toprule
+Element&Main function or file\\ \midrule \endhead
+Instance and parameter loading&\code{CMpuf} constructor,
+\code{cpp/cmpuf.cpp}\\
+Capacities&\code{CMpuf::Init\_cap}\\
+Scenarios&\code{CMpuf::Init\_T}, \code{CMpuf::Init\_C}\\
+Variables&\code{CMpuf::Init\_x}, \code{CMpuf::Init\_z}\\
+Constraints&\code{CMpuf::Init\_contraintes},
+\code{CMpuf::Init\_contraintes\_x}\\
+Objective&\code{CMpuf::Init\_obj}\\
+P-median&\code{cpp/pmedian.cpp}\\
+Greedy heuristic&\code{CMpuf::MyGreedyHeuristic}\\
+Local search&\code{CMpuf::Localsearch}\\
+Exact solution&\code{CMpuf::Resolution} and the main program\\
+Scenario models&\code{CMpuf::ResolutionScenarios},
+\code{cpp/transport.cpp}\\
+Output&\code{AffichageSolutions}, \code{AffichageSolutionsScenarios},
+\code{AffichageCoutTransport}\\ \bottomrule
+\end{longtable}
+
+\end{document}

@@ -1,0 +1,694 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\geometry{margin=2.3cm}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!60!black}
+\setlist{nosep}
+\lstset{
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false
+}
+
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Documentation technique du projet CMPUF\\
+\large Modèle stochastique, données, procédure expérimentale et résultats}
+\author{Projet CMPUF}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Objet et périmètre}
+
+Le programme \code{cmpuf} résout un problème de localisation
+d'établissements capacitaires soumis à des perturbations aléatoires de
+capacité. Dans le code et les commentaires, ce problème est nommé CMPUF ou
+MPUF (\emph{Unreliable Capacitated Facility Location Problem}).
+
+L'implantation des établissements constitue la décision de premier niveau.
+Elle est commune à tous les scénarios. Après réalisation d'un scénario de
+capacité, les quantités expédiées vers les clients sont réoptimisées. Le
+programme met donc en œuvre un programme stochastique discret à deux étapes
+avec recours continu.
+
+La cible maintenue est construite à partir de :
+\begin{itemize}
+  \item \code{cpp/cmpuf.cpp} : lecture des données, scénarios, indicateurs et
+        programme principal ;
+  \item \code{cpp/modele.cpp} : formulation CPLEX, heuristiques et recherche
+        locale ;
+  \item \code{cpp/pmedian.cpp} : prétraitement p-médiane ;
+  \item \code{cpp/transport.cpp} : résolution indépendante d'un scénario ;
+  \item \code{cpp/tri.cpp} : tri des voisinages par distance.
+\end{itemize}
+
+\section{Notations et données}
+
+\subsection{Ensembles et indices}
+
+\begin{longtable}{>{$}l<{$} p{11cm}}
+\toprule
+\text{Notation} & \text{Définition}\\
+\midrule
+\endhead
+N=\{0,\dots,n-1\} & Ensemble des nœuds. Chaque nœud peut être un client et un
+emplacement candidat.\\
+I=\{0,\dots,m-1\} & Ensemble des établissements à implanter.\\
+R=\{0,\dots,ncap-1\} & Ensemble des états de capacité possibles d'un
+établissement.\\
+\Omega=\{0,\dots,K-1\} & Ensemble des scénarios de capacité, avec
+$K=ncap^m$.\\
+i & Indice d'établissement.\\
+l & Indice d'emplacement candidat.\\
+j & Indice de client.\\
+r & Indice d'état de capacité.\\
+k & Indice de scénario.\\
+\bottomrule
+\end{longtable}
+
+\subsection{Paramètres}
+
+\begin{longtable}{>{$}l<{$} p{11cm}}
+\toprule
+\text{Paramètre} & \text{Définition}\\
+\midrule
+\endhead
+w_j & Demande du client $j$.\\
+H=\sum_j w_j & Demande totale.\\
+d_{lj} & Coût ou distance entre l'emplacement $l$ et le client $j$ ; variable
+\code{profit[l][j]} dans le code.\\
+D_{\max}=\max_{l,j}d_{lj} & Plus grande distance de l'instance.\\
+C^m_i & Capacité médiane : demande affectée à l'établissement $i$ dans la
+solution du prétraitement p-médiane.\\
+\gamma & Facteur appliqué à la capacité médiane.\\
+S_i=\gamma C^m_i & Capacité nominale de l'établissement $i$.\\
+b_r & Multiplicateur de capacité lu dans \code{wbeta} pour $r<ncap-1$.\\
+a_r & Poids probabiliste lu dans \code{walpha} pour $r<ncap-1$.\\
+\alpha & Niveau global de perturbation.\\
+p_r & Probabilité marginale de l'état $r$.\\
+C_{ki} & Capacité de l'établissement $i$ dans le scénario $k$.\\
+P_k & Probabilité du scénario $k$.\\
+\bottomrule
+\end{longtable}
+
+Le membre \code{beta} est actuellement lu, stocké et écrit dans les résultats,
+mais n'intervient dans aucune formule active de capacité. Les multiplicateurs
+effectifs sont directement les valeurs \code{wbeta}.
+
+\section{Construction des capacités et des scénarios}
+
+\subsection{Capacités nominales et dégradées}
+
+Le p-médian fournit $C^m_i$. La capacité nominale est :
+\begin{equation}
+S_i=\gamma C^m_i.
+\end{equation}
+
+Les états de capacité sont :
+\begin{align}
+\operatorname{cap}_{ir} &= b_r S_i,
+  &&r=0,\dots,ncap-2,\\
+\operatorname{cap}_{i,ncap-1} &= S_i.
+\end{align}
+
+Avec le fichier \code{parameters/param} fourni, on obtient quatre états :
+$0$, $0{,}33S_i$, $0{,}66S_i$ et $S_i$.
+
+\subsection{Probabilités marginales}
+
+Le code calcule :
+\begin{align}
+p_r &= \alpha a_r,
+  &&r=0,\dots,ncap-2,\\
+p_{ncap-1} &= 1-\alpha.
+\end{align}
+
+Pour que $(p_r)$ soit une loi de probabilité, les poids $a_r$ doivent sommer
+à un. C'est le cas du fichier fourni :
+$0{,}10+0{,}40+0{,}50=1$.
+
+\subsection{Énumération exhaustive}
+
+Un scénario est un vecteur
+\[
+T_k=(T_{k0},\dots,T_{k,m-1})\in R^m.
+\]
+La fonction récursive \code{Init\_T} énumère le produit cartésien complet
+$R^m$. Pour chaque scénario :
+\begin{align}
+C_{ki} &= \operatorname{cap}_{i,T_{ki}},\\
+P_k &= \prod_{i\in I}p_{T_{ki}}.
+\end{align}
+
+La croissance est exponentielle :
+\[
+K=ncap^m.
+\]
+Le modèle principal contient de l'ordre de $n^2K$ variables de flux. Cette
+énumération constitue la principale limite de passage à l'échelle.
+
+\section{Modèle mathématique stochastique codé}
+
+\subsection{Variables de décision}
+
+Les variables de premier niveau sont :
+\[
+x_{il}=
+\begin{cases}
+1 & \text{si l'établissement $i$ est implanté au nœud $l$,}\\
+0 & \text{sinon.}
+\end{cases}
+\]
+
+Dans Concert, les variables sont initialement continues dans $[0,1]$, puis
+converties en variables entières par \code{IloConversion}. Elles sont donc
+binaires après conversion.
+
+Les variables de recours sont :
+\[
+z_{ljk}\geq 0,
+\]
+quantité expédiée depuis le nœud $l$ vers le client $j$ dans le scénario $k$.
+
+\subsection{Objectif}
+
+Le programme maximise l'utilité espérée :
+\begin{equation}
+\max\quad
+\sum_{k\in\Omega}P_k
+\sum_{l\in N}\sum_{j\in N}
+(D_{\max}-d_{lj})z_{ljk}.
+\label{eq:objectif}
+\end{equation}
+
+Lorsque la quantité totale livrée est fixée, maximiser
+\eqref{eq:objectif} revient à minimiser le coût de transport espéré.
+La transformation maintient des coefficients non négatifs.
+
+\paragraph{Point d'attention.}
+Dans le modèle codé, les demandes sont des bornes inférieures et non des
+égalités. Si une capacité excédentaire existe et si
+$D_{\max}-d_{lj}>0$, le solveur peut augmenter certains flux au-delà de la
+demande. Dans ce cas, l'objectif codé n'est plus strictement équivalent à une
+minimisation du coût pour une demande exactement satisfaite.
+
+\subsection{Contraintes d'implantation}
+
+Chaque établissement doit être placé exactement une fois :
+\begin{equation}
+\sum_{l\in N}x_{il}=1,
+\qquad i\in I.
+\label{eq:localisation}
+\end{equation}
+
+Dans le chemin d'exécution actuel, ces contraintes sont ajoutées
+progressivement par l'heuristique gloutonne et restent ensuite dans le modèle
+utilisé pour la résolution exacte.
+
+La méthode \code{Init\_contraintes\_x\_x} permettrait d'interdire la
+colocalisation :
+\[
+\sum_{i\in I}x_{il}\leq 1,\qquad l\in N,
+\]
+mais son appel est commenté. Plusieurs établissements peuvent donc occuper le
+même nœud.
+
+\subsection{Contraintes de capacité}
+
+Pour chaque emplacement et scénario :
+\begin{equation}
+\sum_{j\in N}z_{ljk}
+\leq
+\sum_{i\in I}C_{ki}x_{il},
+\qquad l\in N,\ k\in\Omega.
+\label{eq:capacite}
+\end{equation}
+
+La capacité disponible en un nœud est la somme des capacités des
+établissements qui y sont colocalisés.
+
+\subsection{Contraintes de demande}
+
+Pour chaque client et scénario :
+\begin{equation}
+\sum_{l\in N}z_{ljk}\geq w_j,
+\qquad j\in N,\ k\in\Omega.
+\label{eq:demande}
+\end{equation}
+
+Les variables de flux sont non négatives et aucune borne supérieure directe
+par client n'est imposée.
+
+\subsection{Structure à deux étapes}
+
+Les $x_{il}$ sont identiques pour tous les scénarios : ce sont les décisions
+\emph{ici et maintenant}. Les $z_{ljk}$ dépendent de $k$ : ils constituent le
+recours après observation des capacités. Le code peut annoter les variables
+pour la décomposition de Benders :
+\begin{itemize}
+  \item les $x$ sont placés dans le maître ;
+  \item les flux $z$ sont répartis par scénario.
+\end{itemize}
+La stratégie Benders de la résolution exacte est toutefois réglée à $-1$,
+c'est-à-dire laissée au choix automatique de CPLEX.
+
+\section{Prétraitement p-médiane}
+
+Avant le modèle stochastique, le programme résout un p-médian non capacitaire.
+Les variables $X_l\in\{0,\dots,m\}$ indiquent le nombre de médianes placées
+au nœud $l$. La colocalisation est donc autorisée.
+
+Le modèle impose :
+\begin{align}
+\sum_{l\in N}X_l &= m,\\
+z^{P}_{lj} &\leq w_jX_l,
+  &&l,j\in N,\\
+\sum_{l\in N}z^{P}_{lj} &= w_j,
+  &&j\in N.
+\end{align}
+
+Il maximise :
+\[
+\sum_{l,j}(D_{\max}-d_{lj})z^{P}_{lj},
+\]
+ce qui est équivalent à minimiser la distance totale puisque chaque demande
+est ici imposée à l'égalité.
+
+La solution $X$ est développée en $m$ établissements individuels. Pour
+chaque établissement $i$, la capacité médiane $C^m_i$ est la somme des flux
+affectés à sa médiane. Cette capacité sert ensuite de référence à tous les
+scénarios stochastiques.
+
+\section{Algorithmes de résolution}
+
+\subsection{Évaluation de la solution p-médiane}
+
+La localisation p-médiane est fixée dans le modèle stochastique et les flux
+de tous les scénarios sont optimisés. La valeur obtenue est
+\code{VMEDIAN1}.
+
+Une recherche locale part ensuite de cette localisation ; sa valeur est
+\code{VMEDIAN2}.
+
+\subsection{Heuristique gloutonne}
+
+La méthode active est \code{CMpuf::MyGreedyHeuristic}. Les établissements
+sont placés séquentiellement :
+\begin{enumerate}
+  \item à l'étape $i$, les établissements $j>i$ sont temporairement forcés à
+        zéro ;
+  \item la contrainte \eqref{eq:localisation} de l'établissement $i$ est
+        ajoutée ;
+  \item CPLEX optimise le modèle partiel ;
+  \item le meilleur emplacement de $i$ est mémorisé et fixé à un ;
+  \item la contrainte temporaire est retirée et l'étape suivante commence.
+\end{enumerate}
+
+La valeur finale est \code{VGREEDY} et la localisation est notée $L^G$.
+
+\subsection{Recherche locale}
+
+La méthode \code{Localsearch} met en œuvre un meilleur déplacement à un
+établissement :
+\begin{enumerate}
+  \item toutes les positions courantes sont fixées ;
+  \item chaque établissement $i$ est libéré à tour de rôle ;
+  \item le modèle est résolu pour trouver son meilleur nouvel emplacement ;
+  \item le meilleur déplacement strictement améliorant est accepté ;
+  \item le processus recommence jusqu'à ce qu'aucun déplacement ne soit
+        améliorant.
+\end{enumerate}
+
+Si le rayon demandé est inférieur à $n$, l'établissement $i$ ne peut être
+déplacé que vers les \code{rayon} nœuds les plus proches de sa position
+initiale. Les nœuds sont triés par \code{ROPTri}.
+
+La recherche est lancée deux fois :
+\begin{itemize}
+  \item depuis la solution gloutonne : \code{VGREEDYLS} ;
+  \item depuis la solution p-médiane : \code{VMEDIAN2}.
+\end{itemize}
+
+\subsection{Résolution exacte}
+
+Si le deuxième argument vaut \code{e}, le MIP complet est résolu par CPLEX.
+Les paramètres actifs sont :
+\begin{itemize}
+  \item limite de temps : argument \code{LIMITE\_TEMPS} ;
+  \item gap relatif : argument \code{GAP} ;
+  \item fréquence des heuristiques internes : $-1$ ;
+  \item stratégie Benders : automatique ($-1$).
+\end{itemize}
+
+Les statuts \emph{Optimal}, \emph{OptimalTol}, \emph{SolLim} et
+\emph{AbortTimeLim} sont acceptés pour récupérer une solution. La valeur
+\code{VOPT} peut donc être une meilleure solution connue à la limite de temps,
+et pas nécessairement une valeur prouvée optimale.
+
+Le meilleur résultat heuristique est calculé dans \code{bestL}, mais l'appel
+\code{MIPStart} est actuellement commenté : ce point de départ n'est pas
+transmis à CPLEX.
+
+\subsection{Résolution indépendante des scénarios}
+
+Après une résolution exacte, \code{ResolutionScenarios} résout un modèle de
+transport/localisation séparé pour chaque scénario avec sa capacité connue.
+Ces solutions servent à alimenter \code{SolScenarios} et \code{SolSupply}.
+La fonction d'affichage détaillé associée existe, mais son appel est commenté
+dans le programme principal.
+
+\section{Indicateurs complémentaires}
+
+Pour une localisation $L=(L_0,\dots,L_{m-1})$, la centralisation écrite par
+le programme est la distance moyenne entre paires d'établissements :
+\[
+\operatorname{cent}(L)
+=
+\frac{\sum_{0\leq i<j<m}d_{L_iL_j}}
+     {m(m-1)/2}.
+\]
+
+Si $q(L)$ est le nombre d'emplacements distincts occupés, la colocalisation
+est :
+\[
+\operatorname{coloc}(L)
+=
+100\frac{m-q(L)}{m}.
+\]
+Elle vaut zéro si tous les établissements occupent des nœuds distincts.
+
+\section{Formats des fichiers de test}
+
+\subsection{Fichier liste d'instances}
+
+Le premier argument de l'exécutable désigne un fichier texte contenant un
+chemin d'instance par ligne :
+\begin{lstlisting}
+/chemin/absolu/vers/instance1
+/chemin/absolu/vers/instance2
+\end{lstlisting}
+
+Par exemple, \code{../BENCHMARK/calgaryhospital15} contient le chemin de
+l'instance réelle. Les chemins ne doivent pas contenir d'espace, car ils sont
+lus avec \code{fscanf(file, "\%s", filename)}.
+
+\subsection{Format standard ou hospital}
+
+Lorsque \code{TYPE\_ENTREE} est différent de \code{geometric}, le fichier
+d'instance est lu comme une suite de nombres :
+\begin{lstlisting}
+n
+w[0] w[1] ... w[n-1]
+d[0][0] ... d[0][n-1]
+...
+d[n-1][0] ... d[n-1][n-1]
+\end{lstlisting}
+
+Les espaces, tabulations et retours à la ligne sont équivalents pour
+l'opérateur de lecture C++.
+
+\subsection{Format geometric}
+
+Lorsque le dernier argument vaut exactement \code{geometric}, le lecteur
+attend :
+\begin{lstlisting}
+n
+mtmp
+ptmp[0] ... ptmp[mtmp-1]
+w[0] ... w[n-1]
+d[0][0] ... d[n-1][n-1]
+\end{lstlisting}
+
+Le tableau temporaire \code{ptmp} est lu mais n'est pas utilisé dans les
+calculs ultérieurs. Le vecteur des demandes et la matrice sont lus au moyen
+des opérateurs Concert sur \code{IloNumArray} et \code{IloArray}.
+
+\subsection{Fichier de paramètres stochastiques}
+
+Le fichier \code{parameters/param} respecte :
+\begin{lstlisting}
+ncap
+a[0] ... a[ncap-2]
+b[0] ... b[ncap-2]
+\end{lstlisting}
+
+Le fichier fourni est :
+\begin{lstlisting}
+4
+0.10 0.40 0.50
+0.00 0.33 0.66
+\end{lstlisting}
+
+\section{Procédure de compilation et de test}
+
+\subsection{Compilation}
+
+Depuis la racine :
+\begin{lstlisting}[language=bash]
+make clean
+make -j2 cmpuf
+\end{lstlisting}
+
+ou avec CMake :
+\begin{lstlisting}[language=bash]
+cmake --preset release
+cmake --build --preset cmpuf --parallel
+\end{lstlisting}
+
+L'exécutable produit est \code{bin/cmpuf}.
+
+\subsection{Interface en ligne de commande}
+
+Le programme attend neuf arguments utilisateur :
+\begin{lstlisting}[language=bash]
+./bin/cmpuf LISTE_INSTANCES MODE M GAP RAYON_LOCAL \
+  RAYON_BB LIMITE_TEMPS FICHIER_PARAMETRES TYPE_ENTREE
+\end{lstlisting}
+
+\begin{longtable}{clp{8.8cm}}
+\toprule
+No & Argument & Rôle\\
+\midrule
+\endhead
+1 & \code{LISTE\_INSTANCES} & Fichier contenant un chemin d'instance par
+ligne.\\
+2 & \code{MODE} & \code{e} active la résolution exacte ; toute autre valeur
+conserve les évaluations heuristiques.\\
+3 & \code{M} & Nombre d'établissements.\\
+4 & \code{GAP} & Gap relatif CPLEX.\\
+5 & \code{RAYON\_LOCAL} & Taille du voisinage spatial de recherche locale.\\
+6 & \code{RAYON\_BB} & Rayon prévu pour le branch-and-bound local ; les appels
+correspondants sont actuellement commentés.\\
+7 & \code{LIMITE\_TEMPS} & Limite de temps CPLEX en secondes.\\
+8 & \code{FICHIER\_PARAMETRES} & Paramètres $ncap$, $a_r$ et $b_r$.\\
+9 & \code{TYPE\_ENTREE} & \code{geometric} ou format standard, par convention
+\code{hospital}.\\
+\bottomrule
+\end{longtable}
+
+Exemple :
+\begin{lstlisting}[language=bash]
+./bin/cmpuf ../BENCHMARK/calgaryhospital15 e 4 0.00 \
+  5 40 30000 parameters/param hospital
+\end{lstlisting}
+
+\subsection{Plan expérimental codé}
+
+Pour chaque instance de la liste :
+\begin{enumerate}
+  \item le p-médian est résolu une fois ;
+  \item $\gamma$ parcourt $1$, $1{,}25$, $1{,}50$, $1{,}75$ ;
+  \item pour chaque $\gamma$, $\alpha$ parcourt $0$, $0{,}1$, \ldots, $1$ ;
+  \item $\beta$ reste fixé à zéro ;
+  \item pour chaque couple $(\alpha,\gamma)$, le programme évalue le
+        p-médian, le glouton et les deux recherches locales ;
+  \item en mode \code{e}, il lance aussi le MIP exact.
+\end{enumerate}
+
+Cela représente théoriquement $4\times 11=44$ configurations par instance,
+sous réserve des effets d'arrondi de la boucle en nombres flottants.
+
+\subsection{Contrôles recommandés}
+
+\begin{enumerate}
+  \item lancer \code{./bin/cmpuf} sans argument et vérifier le message
+        \og Erreur sur le nombre d'arguments \fg ;
+  \item commencer avec une petite instance et une limite de temps courte ;
+  \item vérifier que $\sum_{r<ncap-1}a_r=1$ ;
+  \item vérifier que $m$, $ncap^m$ et $n^2ncap^m$ restent compatibles avec la
+        mémoire disponible ;
+  \item contrôler que le répertoire \code{results/hospital} existe et est
+        accessible en écriture ;
+  \item comparer \code{VGREEDY}, \code{VGREEDYLS}, \code{VMEDIAN1},
+        \code{VMEDIAN2} et \code{VOPT}.
+\end{enumerate}
+
+\section{Formats des fichiers de résultats}
+
+\subsection{Construction des noms}
+
+Quatre préfixes sont codés en dur dans \code{cpp/cmpuf.cpp} :
+\begin{lstlisting}
+results2026_v1_
+solgreedy_v1_
+solopt_v1_
+solcent_v1_
+\end{lstlisting}
+
+Le suffixe concatène une partie de \code{argv[1]}, puis :
+\[
+\code{\_M\_GAP\_RAYON\_LOCAL\_RAYON\_BB\_LIMITE\_TEMPS}.
+\]
+
+\paragraph{Limite actuelle.}
+La fonction \code{concat} utilise \code{argv[1]+16} au lieu d'extraire
+proprement le dernier composant du chemin. Le nom produit dépend donc de la
+longueur du chemin de la liste d'instances et peut être tronqué, comme
+\code{garyhospital15} au lieu de \code{calgaryhospital15}. Les répertoires de
+sortie sont également des chemins absolus codés en dur.
+
+Tous les fichiers sont ouverts en mode ajout (\code{ios::app} ou
+\code{fopen(...,"a")}).
+
+\subsection{Fichier principal results2026}
+
+Chaque ligne de données contient 25 champs séparés par \code{\&} :
+\begin{longtable}{clp{8.5cm}}
+\toprule
+No & Champ & Signification\\
+\midrule
+\endhead
+1 & \code{n} & Nombre de clients/nœuds.\\
+2 & \code{m} & Nombre d'établissements.\\
+3--5 & \code{Alpha}, \code{Beta}, \code{Gamma} & Paramètres expérimentaux.\\
+6 & \code{VOPT} & Valeur du MIP exact, ou $-1$ hors mode exact.\\
+7 & \code{VGREEDY} & Valeur gloutonne.\\
+8 & \code{VGREEDYLS} & Valeur après recherche locale depuis le glouton.\\
+9 & \code{VMEDIAN1} & Valeur stochastique de la localisation p-médiane.\\
+10 & \code{VMEDIAN2} & Valeur après recherche locale depuis le p-médian.\\
+11--15 & \code{cent\_*} & Centralisations des cinq solutions.\\
+16--20 & \code{coloc\_*} & Pourcentages de colocalisation.\\
+21 & \code{topt} & Temps CPLEX de la résolution exacte.\\
+22 & \code{tgreedy} & Temps de l'heuristique gloutonne.\\
+23 & \code{tgreedyls} & Temps de recherche locale depuis le glouton.\\
+24 & \code{tpmedian1} & Temps du prétraitement p-médiane.\\
+25 & \code{tpmedian2} & Temps de recherche locale depuis le p-médian.\\
+\bottomrule
+\end{longtable}
+
+\paragraph{Anomalie actuelle de l'en-tête.}
+L'appel qui écrit les libellés contient 24 marqueurs \code{\%s} pour 25
+libellés, et n'ajoute pas de retour à la ligne. Le libellé
+\code{tpmedian2} n'est donc pas écrit et la première ligne de données est
+concaténée à l'en-tête. Les lignes numériques suivantes respectent néanmoins
+les 25 champs du format \code{format1}.
+
+\subsection{Fichier solgreedy}
+
+Une ligne est ajoutée pour chaque couple $(\alpha,\gamma)$. Elle contient les
+$m$ indices de nœuds de la solution obtenue après recherche locale depuis le
+glouton :
+\begin{lstlisting}
+Lls1[0] Lls1[1] ... Lls1[m-1]
+\end{lstlisting}
+Malgré le préfixe \code{solgreedy}, il s'agit donc de $L^{G,LS}$, pas de la
+localisation gloutonne brute.
+
+\subsection{Fichier solopt}
+
+En mode exact, une ligne contient les $m$ indices de la solution récupérée
+après le MIP :
+\begin{lstlisting}
+Lopt[0] Lopt[1] ... Lopt[m-1]
+\end{lstlisting}
+Aucune ligne n'est ajoutée hors mode \code{e}.
+
+\subsection{Fichier solcent}
+
+En mode exact, chaque ligne comporte cinq colonnes séparées par des
+tabulations :
+\begin{lstlisting}
+alpha    beta    gamma    VOPT    centralizationopt
+\end{lstlisting}
+Les nombres sont écrits en notation décimale fixe.
+
+\subsection{Sortie standard}
+
+Pour chaque configuration, le programme affiche une ligne de style tableau
+LaTeX contenant d'abord le dernier composant de \code{filename}, puis les 25
+valeurs décrites ci-dessus. Cette sortie peut être redirigée :
+\begin{lstlisting}[language=bash]
+./bin/cmpuf ... > compte_rendu.txt
+\end{lstlisting}
+
+\section{Points de vigilance pour l'interprétation}
+
+\begin{itemize}
+  \item L'objectif est une utilité attendue, pas directement le coût de
+        transport ; la conversion est exacte seulement si les quantités
+        totales livrées sont fixées.
+  \item Les demandes stochastiques sont imposées par $\geq$ ; un sur-service
+        est mathématiquement possible.
+  \item La colocalisation est autorisée dans le p-médian et dans le modèle
+        stochastique actif.
+  \item \code{beta} est actuellement sans effet sur les capacités.
+  \item Le nombre de scénarios et de variables croît exponentiellement avec
+        $m$.
+  \item Une valeur \code{VOPT} obtenue à la limite de temps n'est pas
+        nécessairement prouvée optimale.
+  \item Les fichiers sont complétés en mode ajout ; deux campagnes de même nom
+        sont concaténées.
+  \item La boucle \code{while(!feof(file1))} peut tenter une itération
+        supplémentaire ; les listes d'instances doivent être soigneusement
+        terminées et les sorties contrôlées.
+\end{itemize}
+
+\section{Traçabilité entre formulation et code}
+
+\begin{longtable}{p{5.2cm}p{9cm}}
+\toprule
+Élément & Fonction ou fichier principal\\
+\midrule
+\endhead
+Lecture des instances & Constructeur \code{CMpuf}, \code{cpp/cmpuf.cpp}\\
+Lecture des paramètres & Constructeur \code{CMpuf}, \code{cpp/cmpuf.cpp}\\
+Capacités & \code{CMpuf::Init\_cap}\\
+Scénarios et probabilités & \code{CMpuf::Init\_T}, \code{CMpuf::Init\_C}\\
+Variables $x,z$ & \code{CMpuf::Init\_x}, \code{CMpuf::Init\_z}\\
+Contraintes & \code{CMpuf::Init\_contraintes},
+\code{CMpuf::Init\_contraintes\_x}\\
+Objectif & \code{CMpuf::Init\_obj}\\
+P-médian & \code{cpp/pmedian.cpp}\\
+Glouton & \code{CMpuf::MyGreedyHeuristic}\\
+Recherche locale & \code{CMpuf::Localsearch}\\
+Résolution exacte & \code{CMpuf::Resolution} et programme principal\\
+Scénarios isolés & \code{CMpuf::ResolutionScenarios},
+\code{cpp/transport.cpp}\\
+Résultats & \code{AffichageSolutions},
+\code{AffichageSolutionsScenarios}, \code{AffichageCoutTransport}\\
+\bottomrule
+\end{longtable}
+
+\end{document}

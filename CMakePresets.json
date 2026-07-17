@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {"major": 3, "minor": 20, "patch": 0},
+  "configurePresets": [
+    {
+      "name": "release",
+      "displayName": "CMPUF Release",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/cmake-release",
+      "cacheVariables": {"CMAKE_BUILD_TYPE": "Release"}
+    }
+  ],
+  "buildPresets": [
+    {"name": "cmpuf", "configurePreset": "release", "targets": ["cmpuf"]},
+    {"name": "all", "configurePreset": "release"}
+  ]
+}
